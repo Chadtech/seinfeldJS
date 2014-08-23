@@ -37,7 +37,7 @@ var charactersColors = {
   'Mickey': 0xFF00FF,
 };
 
-var colorReturn = function(lineOfDiagloue){
+var colorReturn = function(lineOfDialogue){
   colorToReturn = { hue: 0xFFFFFF, sat:0xFFFFFF, white: 5000, lum: 0x8000, bulbName: 'b10' };
   for (var nameIndex= 0; nameIndex< charactersNames.length; nameIndex++){
     if (lineOfDialogue.substr(0,charactersNames[nameIndex].length) === charactersName[nameIndex]){

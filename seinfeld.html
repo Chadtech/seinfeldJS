@@ -46,8 +46,31 @@ var colorReturn = function(lineOfDiagloue){
   }
   return colorToReturn;
 }
-
-//var everyLine = seinfeldEpisode.split('\n');
+  for (var lightBulb = 1; lighBulb < 11; lightBulb++){
+    // ON
+    }}, function(result){console.log('data',result)}); 
+    conn.message({
+        "devices": "81165e42-422a-436a-832c-e4cf9fabbfd4",
+    "subdevice": "lx",
+     "payload": {setState: {
+        on: true,
+        bulbName: 'b'+lightBulb.toString()
+      }
+    }}, function(result){console.log('data',result)}); 
+    // SET COLOR
+    conn.message({
+        "devices": "81165e42-422a-436a-832c-e4cf9fabbfd4",
+      "subdevice": "lx",
+      "payload": {
+        setState: {
+        hue: colorReturn(eachLine[iteration]),
+          sat: 0xffff,
+          white: 5000,
+          lum: 0x8000,
+          bulbName: 'b'+lightBulb.toString()
+      }
+    }}, function(result){console.log('data',result)}); 
+  }
 
 var iteration = 0;
 setInterval(function(){
@@ -55,39 +78,40 @@ setInterval(function(){
     "devices": "81165e42-422a-436a-832c-e4cf9fabbfd4","subdevice": "aj",
     "payload": {method: "notify",message: eachLine[iteration]}
   }, function(result){console.log('data',result)}); 
-  // OFF
-  conn.message({
-      "devices": "81165e42-422a-436a-832c-e4cf9fabbfd4",
-  "subdevice": "lx",
-   "payload": {setState: {
-      on: false,
-      bulbName: 'b10'
-
-    }
-  // ON
-  }}, function(result){console.log('data',result)}); 
-  conn.message({
-      "devices": "81165e42-422a-436a-832c-e4cf9fabbfd4",
-  "subdevice": "lx",
-   "payload": {setState: {
-      on: true,
-      bulbName: 'b10'
-    }
-  }}, function(result){console.log('data',result)}); 
-  // SET COLOR
-  conn.message({
-      "devices": "81165e42-422a-436a-832c-e4cf9fabbfd4",
+  for (var lightBulb = 1; lighBulb < 11; lightBulb++){
+    // OFF
+    conn.message({
+        "devices": "81165e42-422a-436a-832c-e4cf9fabbfd4",
     "subdevice": "lx",
-    "payload": {
-      setState: {
-      hue: colorReturn(eachLine[iteration]),
-        sat: 0xffff,
-        white: 5000,
-        lum: 0x8000,
-        bulbName: 'b10'
-    }
-  }}, function(result){console.log('data',result)}); 
+     "payload": {setState: {
+        on: false,
+        bulbName: 'b'+lightBulb.toString()
 
+      }
+    // ON
+    }}, function(result){console.log('data',result)}); 
+    conn.message({
+        "devices": "81165e42-422a-436a-832c-e4cf9fabbfd4",
+    "subdevice": "lx",
+     "payload": {setState: {
+        on: true,
+        bulbName: 'b'+lightBulb.toString()
+      }
+    }}, function(result){console.log('data',result)}); 
+    // SET COLOR
+    conn.message({
+        "devices": "81165e42-422a-436a-832c-e4cf9fabbfd4",
+      "subdevice": "lx",
+      "payload": {
+        setState: {
+        hue: colorReturn(eachLine[iteration]),
+          sat: 0xffff,
+          white: 5000,
+          lum: 0x8000,
+          bulbName: 'b'+lightBulb.toString()
+      }
+    }}, function(result){console.log('data',result)}); 
+  }
 
   iteration++;
 },4000);

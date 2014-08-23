@@ -46,7 +46,7 @@ var colorReturn = function(lineOfDiagloue){
   }
   return colorToReturn;
 }
-  for (var lightBulb = 1; lighBulb < 11; lightBulb++){
+  for (var lightBulb = 1; lightBulb < 11; lightBulb++){
     // ON
     conn.message({
         "devices": "81165e42-422a-436a-832c-e4cf9fabbfd4",
@@ -77,7 +77,7 @@ setInterval(function(){
     "devices": "81165e42-422a-436a-832c-e4cf9fabbfd4","subdevice": "aj",
     "payload": {method: "notify",message: eachLine[iteration]}
   }, function(result){console.log('data',result)}); 
-  for (var lightBulb = 1; lighBulb < 11; lightBulb++){
+  for (var lightBulb = 1; lightBulb < 11; lightBulb++){
     // OFF
     conn.message({
         "devices": "81165e42-422a-436a-832c-e4cf9fabbfd4",

@@ -37,6 +37,8 @@ var charactersColors = {
   'Mickey': 0xFF00FF,
 };
 
+var iteration = 0;
+
 var colorReturn = function(lineOfDialogue){
   colorToReturn = { hue: 0xFFFFFF, sat:0xFFFFFF, white: 5000, lum: 0x8000, bulbName: 'b10' };
   for (var nameIndex= 0; nameIndex< charactersNames.length; nameIndex++){
@@ -71,7 +73,6 @@ var colorReturn = function(lineOfDialogue){
     }}, function(result){console.log('data',result)}); 
   }
 
-var iteration = 0;
 setInterval(function(){
   conn.message({
     "devices": "81165e42-422a-436a-832c-e4cf9fabbfd4","subdevice": "aj",
